@@ -15,7 +15,16 @@ const SignPageLayout = ({ children, rightIcon, placeholderText, label }) => {
     <ContentWrapper>
       <FormWrapper>
         <button className='google-button' onClick={handleSignIn}>
-          G
+          <div class='google-icon-wrapper'>
+            <img
+              class='google-icon'
+              src='https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg'
+              alt='google'
+            />
+          </div>
+          <p class='btn-text'>
+            <b>Sign in with google</b>
+          </p>
         </button>
         {children}
       </FormWrapper>
@@ -52,15 +61,14 @@ const ContentWrapper = styled.div`
   }
 
   .google-button {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    background-color: #eef2ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 184px;
+    height: 42px;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+    background-color: #4285f4;
+    position: relative;
 
-    font-size: 28px;
+    font-size: 13px;
     font-weight: 600;
     color: #072a48;
 
@@ -68,8 +76,34 @@ const ContentWrapper = styled.div`
     outline: none;
     cursor: pointer;
 
+    .google-icon-wrapper {
+      position: absolute;
+      left: 1px;
+      top: 1px;
+      width: 40px;
+      height: 40px;
+      border-radius: 2px;
+      background-color: white;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .google-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .btn-text {
+      margin-left: 40px;
+      color: white;
+    }
+
     &:hover {
-      background-color: #e2eef9;
+      box-shadow: 0 0 6px #4285f4;
+    }
+    &:active {
+      background: #1669f2;
     }
   }
 
