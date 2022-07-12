@@ -1,17 +1,15 @@
-
-
 export const PUBLIC_PREFIX = '/p';
-export const LOGIN_PREFIX = "/login";
-export const SIGNUP_PREFIX = "/signup";
-export const PROFILE_PREFIX = "/profile";
+export const LOGIN_PREFIX = '/login';
+export const SIGNUP_PREFIX = '/signup';
+export const PROFILE_PREFIX = '/profile';
 export const PRODUCT_DETAIL_PREFIX = '/product/*';
-export const ERROR_PREFIX = "/*";
-export const ADMIN_PREFIX = "/cp";
-export const CUSTOMER_PREFIX = "/customer";
-export const ADD_PREFIX = "/add";
-export const PRODUCT_PREFIX = "/product";
-export const ORDER_PREFIX = "/order";
-export const CART_PREFIX = "/cart";
+export const ERROR_PREFIX = '/*';
+export const ADMIN_PREFIX = '/cp';
+export const CUSTOMER_PREFIX = '/customer';
+export const ADD_PREFIX = '/add';
+export const PRODUCT_PREFIX = '/product';
+export const ORDER_PREFIX = '/order';
+export const CART_PREFIX = '/cart';
 export const SHIPPING_PREFIX = '/shipping';
 export const WAREHOUSE_PREFIX = '/warehouse';
 export const PARCEL_PREFIX = '/parcel';
@@ -32,7 +30,8 @@ export const MANUAL_PRODUCT_DETAIL_PREFIX = '/manual-product';
 export const HISTORY_PREFIX = '/history';
 export const HISTORYCART_PREFIX = '/historycart';
 export const CONFIRM_PREFIX = '/confirm';
-export const FORGOT_PASSWORD_PREFIX = '/forgotpassword';
+export const FORGOT_PASSWORD_PREFIX = '/forgot-password';
+export const RESET_PASSWORD_PREFIX = '/reset-password';
 
 export const settings = {
   dots: true,
@@ -48,25 +47,23 @@ export const settings = {
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,
-        dots: true
-      }
+        dots: true,
+      },
     },
     {
       breakpoint: 1260,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
-        initialSlide: 2
-      }
+        initialSlide: 2,
+      },
     },
     {
       breakpoint: 770,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
-
-

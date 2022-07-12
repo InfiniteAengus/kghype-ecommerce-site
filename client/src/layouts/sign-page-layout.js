@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { auth } from "../firebase.js";
-import firebase from "firebase/compat/app";
-import { signInWithPopup, onAuthStateChanged } from "@firebase/auth";
+import styled from 'styled-components';
+import { auth } from '../firebase.js';
+import firebase from 'firebase/compat/app';
+import { signInWithPopup } from '@firebase/auth';
 
 const SignPageLayout = ({ children, rightIcon, placeholderText, label }) => {
   const handleSignIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    provider.setCustomParameters({ prompt: "select_account" });
+    provider.setCustomParameters({ prompt: 'select_account' });
 
     signInWithPopup(auth, provider);
   };
@@ -14,22 +14,22 @@ const SignPageLayout = ({ children, rightIcon, placeholderText, label }) => {
   return (
     <ContentWrapper>
       <FormWrapper>
-        <button className="google-button" onClick={handleSignIn}>
+        <button className='google-button' onClick={handleSignIn}>
           G
         </button>
         {children}
       </FormWrapper>
       <Wrapper>
-        <div className="circle-1"></div>
-        <div className="circle-2"></div>
-        <div className="circle-3"></div>
-        <div className="circle-4"></div>
+        <div className='circle-1'></div>
+        <div className='circle-2'></div>
+        <div className='circle-3'></div>
+        <div className='circle-4'></div>
         {rightIcon && (
-          <div className="right-icon">
-            <img src={rightIcon} alt="icon" />
+          <div className='right-icon'>
+            <img src={rightIcon} alt='icon' />
           </div>
         )}
-        <div className="label">
+        <div className='label'>
           <p>{placeholderText}</p>
           <h2>{label}</h2>
         </div>
@@ -41,9 +41,7 @@ const SignPageLayout = ({ children, rightIcon, placeholderText, label }) => {
 export default SignPageLayout;
 
 const ContentWrapper = styled.div`
-  width: 90%;
-  max-width: 1440px;
-  margin: 90px auto;
+  width: 100%;
   display: flex;
 
   height: 900px;
@@ -150,7 +148,7 @@ const FormWrapper = styled.div`
 
   @media screen and (max-width: 1200px) {
     width: 100%;
-    max-width:600px;
+    max-width: 600px;
     margin: 0 auto;
   }
 `;
@@ -161,6 +159,7 @@ const Wrapper = styled.div`
   position: relative;
 
   overflow: hidden;
+  display: flex;
 
   @media screen and (max-width: 1200px) {
     display: none;
@@ -171,10 +170,10 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
 
-    margin: 180px auto 0 auto;
+    margin: auto auto;
 
-    width: 242px;
-    height: 242px;
+    width: 350px;
+    height: 350px;
 
     background: linear-gradient(
       180deg,
@@ -184,7 +183,7 @@ const Wrapper = styled.div`
     border-radius: 16px;
 
     img {
-      width: 160px;
+      width: 240px;
       opacity: 0.8;
     }
   }
