@@ -14,6 +14,12 @@ const SignPageLayout = ({ children, rightIcon, placeholderText, label }) => {
   return (
     <ContentWrapper>
       <FormWrapper>
+        {children}
+        <div className='hr-line-separator'>
+          <h2>
+            <span>or</span>
+          </h2>
+        </div>
         <button className='google-button' onClick={handleSignIn}>
           <div class='google-icon-wrapper'>
             <img
@@ -26,7 +32,6 @@ const SignPageLayout = ({ children, rightIcon, placeholderText, label }) => {
             <b>Sign in with google</b>
           </p>
         </button>
-        {children}
       </FormWrapper>
       <Wrapper>
         <div className='circle-1'></div>
@@ -60,7 +65,23 @@ const ContentWrapper = styled.div`
     box-sizing: border-box;
   }
 
+  .hr-line-separator {
+    h2 {
+      border-bottom: 1px solid #e1e3eb;
+      line-height: 0.1em;
+      text-align: center;
+    }
+    span {
+      background: #fff;
+      padding: 0 19px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #546285;
+    }
+  }
+
   .google-button {
+    margin: 0px auto 0 auto;
     width: 184px;
     height: 42px;
     border-radius: 2px;

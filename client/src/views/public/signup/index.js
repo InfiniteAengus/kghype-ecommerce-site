@@ -86,7 +86,6 @@ const SignUpPage = () => {
       placeholderText='Placeholder text'
       label='Register on our Service!'
     >
-      <div className='space-1'></div>
       <h1>Register here</h1>
       <h5>
         If you dont have account on our service,please register here. By

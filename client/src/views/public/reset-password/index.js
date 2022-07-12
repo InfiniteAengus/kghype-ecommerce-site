@@ -15,7 +15,6 @@ function ResetPasswordPage(props) {
       placeholderText='Placeholder Text'
       label='Reset your password'
     >
-      <div className='space-1'></div>
       <h1>Password Reset</h1>
       <h5>
         Enter your new password twice to change password of assosiated account

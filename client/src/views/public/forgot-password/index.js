@@ -19,7 +19,6 @@ function ForgotPasswordPage(props) {
       placeholderText='Placeholder Text'
       label='Forgot your password?'
     >
-      <div className='space-1'></div>
       <h1>Forgot Your Password?</h1>
       <h5>Enter your email to reset password assosiated with your account</h5>
       <div className='space-2'></div>

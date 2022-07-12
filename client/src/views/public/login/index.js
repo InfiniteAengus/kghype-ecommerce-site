@@ -61,7 +61,6 @@ function LoginPage(props) {
 
   return (
     <SignPageLayout placeholderText='Placeholder text' label='Login'>
-      <div className='space-1'></div>
       <h1>Enter your Credentials</h1>
       <h5>Login to our service</h5>
       <div className='space-2'></div>
