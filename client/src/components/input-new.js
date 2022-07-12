@@ -1,12 +1,6 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-const fontStyle = {
-  fontFamily: "Inter",
-  fontSize: "16px",
-  color: "#000000",
-  textAlign: "left",
-};
+import { TextField } from '@mui/material';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export default function Input({
   label = null,
@@ -21,18 +15,22 @@ export default function Input({
         <div>{label}</div>
         {append && <Link to={append.to}>{append.text}</Link>}
       </label>
-      <div className="input-container">
+      <div className='input-container'>
         {inputs.map((e, ind) => (
-          <InputWrapper
-            placeholder={e.placeholder}
-            name={e.name}
-            value={e.value}
-            id={e.id}
-            type={e.type}
-            onChange={onChange}
-            onFocus={onFocus}
-            key={ind}
-          />
+          <>
+            <TextField
+              placeholder={e.placeholder}
+              name={e.name}
+              value={e.value}
+              id={e.id}
+              type={e.type}
+              error={e.error}
+              onChange={onChange}
+              onFocus={onFocus}
+              key={ind}
+              fullWidth
+            />
+          </>
         ))}
       </div>
     </Wrapper>
@@ -65,15 +63,4 @@ const Wrapper = styled.div`
     display: flex;
     gap: 10px;
   }
-`;
-
-const InputWrapper = styled.input`
-  padding: 20px 40px;
-  background-color: #f3f4f6;
-  border: none;
-  outline: none;
-  border-radius: 8px;
-
-  width: 40%;
-  flex-grow: 1;
 `;

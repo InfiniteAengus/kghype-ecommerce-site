@@ -6,7 +6,7 @@ import {
   SIGNUP_PREFIX,
   FORGOT_PASSWORD_PREFIX,
 } from 'configs/app-config';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { signed } from 'store/actions/actions';
 import { connect } from 'react-redux';
 
@@ -17,6 +17,7 @@ import { db } from 'firebase.js';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import SignPageLayout from 'layouts/sign-page-layout';
 import CheckBox from 'components/checkbox';
+import { isValidEmail } from 'utilities/validator';
 
 function LoginPage(props) {
   const [data, setData] = useState({
@@ -29,6 +30,9 @@ function LoginPage(props) {
     if (currentUser) window.location = '/p/profile';
   });
 
+  const validationEmail = useMemo(() => {
+    return data.mail === '' || isValidEmail(data.mail);
+  }, [data.mail]);
   //Values
 
   const handleSubmit = (e) => {
@@ -36,17 +40,18 @@ function LoginPage(props) {
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
     setData(newData);
-    console.log(newData);
   };
 
   const login = async (e) => {
     e.preventDefault();
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        data.mail,
-        data.password
-      );
+      if (validationEmail) {
+        const user = await signInWithEmailAndPassword(
+          auth,
+          data.mail,
+          data.password
+        );
+      }
 
       window.location = '/p/profile';
     } catch (error) {
@@ -68,6 +73,7 @@ function LoginPage(props) {
               name: 'email',
               value: data.mail,
               id: 'mail',
+              error: !validationEmail,
               placeholder: 'Email',
             },
           ]}

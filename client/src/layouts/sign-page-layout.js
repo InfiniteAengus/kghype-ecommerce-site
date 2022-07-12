@@ -167,6 +167,7 @@ const FormWrapper = styled.div`
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 10px;
 
   .space-1 {
@@ -177,7 +178,7 @@ const FormWrapper = styled.div`
   }
 
   @media screen and (max-width: 1390px) {
-    padding: 60px 90px;
+    padding: 60px 40px;
   }
 
   @media screen and (max-width: 1200px) {

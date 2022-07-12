@@ -1,7 +1,7 @@
 import Input from 'components/input-new';
 import { Link } from 'react-router-dom';
 import SignPageLayout from 'layouts/sign-page-layout';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -11,6 +11,7 @@ import { db } from 'firebase.js';
 import CountrySelect from 'components/country-select';
 
 import countryList from './countryList.js';
+import { isValidEmail } from 'utilities/validator.js';
 
 const SignUpPage = () => {
   const [data, setData] = useState({
@@ -25,6 +26,10 @@ const SignUpPage = () => {
   });
 
   const [step, setStep] = useState(1);
+
+  const validationEmail = useMemo(() => {
+    return data.mail === '' || isValidEmail(data.mail);
+  }, [data.mail]);
 
   const register = async () => {
     try {
@@ -117,6 +122,7 @@ const SignUpPage = () => {
                 name: 'email',
                 value: data.mail,
                 id: 'mail',
+                error: !validationEmail,
                 placeholder: 'Email',
               },
             ]}
