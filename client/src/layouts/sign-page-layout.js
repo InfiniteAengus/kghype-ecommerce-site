@@ -66,6 +66,7 @@ const SignPageLayout = ({ children, rightIcon }) => {
         <div className='circle-4'></div>
         {rightIcon ? (
           <div className='right-icon'>
+            <span>NEW MEMBER COUPON</span>
             <img src={rightIcon} alt='icon' />
           </div>
         ) : (
@@ -267,6 +268,7 @@ const Wrapper = styled.div`
 
   .right-icon {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -275,6 +277,11 @@ const Wrapper = styled.div`
     width: 100%;
     // height: 350px;
 
+    font-size: 60px;
+    text-align: center;
+    font-weight: 800;
+    color: white;
+
     background: linear-gradient(
       180deg,
       rgba(7, 42, 72, 0.4) 0%,
@@ -282,7 +289,13 @@ const Wrapper = styled.div`
     );
     border-radius: 16px;
 
+    span {
+      position: absolute;
+      -webkit-text-stroke: 3px red;
+    }
+
     img {
+      margin-top: 20px;
       width: 100%;
     }
   }
