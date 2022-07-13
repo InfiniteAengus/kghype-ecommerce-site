@@ -1,6 +1,6 @@
 import Input from 'components/input-new';
 import { Link } from 'react-router-dom';
-import { PUBLIC_PREFIX, LOGIN_PREFIX, SIGNUP_PREFIX } from 'configs/app-config';
+import { PUBLIC_PREFIX, SIGNUP_PREFIX } from 'configs/app-config';
 
 //Firebase
 import SignPageLayout from 'layouts/sign-page-layout';

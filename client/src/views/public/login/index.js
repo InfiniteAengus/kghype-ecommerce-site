@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import Input from 'components/input-new';
 import { Link } from 'react-router-dom';
 import {
@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 //Firebase
 
 import { auth } from 'firebase.js';
-import { db } from 'firebase.js';
+// import { db } from 'firebase.js';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import SignPageLayout from 'layouts/sign-page-layout';
 import CheckBox from 'components/checkbox';
@@ -46,7 +46,7 @@ function LoginPage(props) {
     e.preventDefault();
     try {
       if (validationEmail) {
-        const user = await signInWithEmailAndPassword(
+        await signInWithEmailAndPassword(
           auth,
           data.mail,
           data.password

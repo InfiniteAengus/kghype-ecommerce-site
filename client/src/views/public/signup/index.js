@@ -1,10 +1,10 @@
 import Input from 'components/input-new';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import SignPageLayout from 'layouts/sign-page-layout';
 import { useMemo, useState } from 'react';
 import {
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
+  // onAuthStateChanged,
 } from 'firebase/auth';
 import { auth } from 'firebase.js';
 import { db } from 'firebase.js';
@@ -34,11 +34,7 @@ const SignUpPage = () => {
 
   const register = async () => {
     try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        data.mail,
-        data.password
-      );
+      await createUserWithEmailAndPassword(auth, data.mail, data.password);
 
       const usersRef = db.ref('users');
       const newUserRef = usersRef.push();
