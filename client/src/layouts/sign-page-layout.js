@@ -277,7 +277,7 @@ const Wrapper = styled.div`
     width: 100%;
     // height: 350px;
 
-    font-size: 60px;
+    font-size: 64px;
     text-align: center;
     font-weight: 800;
     color: white;
@@ -289,13 +289,8 @@ const Wrapper = styled.div`
     );
     border-radius: 16px;
 
-    span {
-      position: absolute;
-      -webkit-text-stroke: 3px red;
-    }
-
     img {
-      margin-top: 20px;
+      margin-top: 50px;
       width: 100%;
     }
   }
