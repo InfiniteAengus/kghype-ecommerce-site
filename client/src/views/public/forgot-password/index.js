@@ -16,7 +16,7 @@ function ForgotPasswordPage(props) {
 
   return (
     <SignPageLayout
-      placeholderText='Placeholder Text'
+      placeholderText='Needs confirmation when putting in email'
       label='Forgot your password?'
     >
       <h1>Forgot Your Password?</h1>

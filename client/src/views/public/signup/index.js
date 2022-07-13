@@ -9,7 +9,7 @@ import {
 import { auth } from 'firebase.js';
 import { db } from 'firebase.js';
 import CountrySelect from 'components/country-select';
-
+import CheckBox from 'components/checkbox';
 import countryList from './countryList.js';
 import { isValidEmail } from 'utilities/validator.js';
 
@@ -23,6 +23,7 @@ const SignUpPage = () => {
     phoneNum: '',
     country: '',
     username: '',
+    agreement: false,
   });
 
   const [step, setStep] = useState(1);
@@ -65,6 +66,9 @@ const SignUpPage = () => {
     e.preventDefault();
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
+    if (e.target.id === 'agreement') {
+      newData[e.target.id] = e.target.checked;
+    }
     setData(newData);
     console.log(newData);
   };
@@ -74,7 +78,8 @@ const SignUpPage = () => {
       data.fName !== '' &&
       data.lName !== '' &&
       data.mail !== '' &&
-      data.password.length > 6
+      data.password.length > 6 &&
+      data.agreement
     ) {
       setStep(2);
     }
@@ -83,7 +88,7 @@ const SignUpPage = () => {
   return (
     <SignPageLayout
       rightIcon={'/image/3595867.png'}
-      placeholderText='Placeholder text'
+      placeholderText="If you don't have an account, please register here. By registering you agree to our terms of services."
       label='Register on our Service!'
     >
       <h1>Register here</h1>
@@ -142,10 +147,13 @@ const SignUpPage = () => {
             onChange={handleSubmit}
           />
 
-          <div className='supporter'>
-            By register you agree on our
-            <Link to='\'>Terms of Service and Privacy Policy</Link>
-          </div>
+          <CheckBox
+            name='agreement'
+            label='By register you agree on our Terms of Service and Privacy Policy'
+            value={data.agreement}
+            onChange={handleSubmit}
+            id='agreement'
+          />
 
           <button className='submit-button' onClick={handleNext}>
             NEXT
@@ -189,10 +197,13 @@ const SignUpPage = () => {
             countryList={countryList}
           />
 
-          <div className='supporter'>
-            By register you agree on our
-            <Link to='\'>Terms of Service and Privacy Policy</Link>
-          </div>
+          <CheckBox
+            name='agreement'
+            label='By register you agree on our Terms of Service and Privacy Policy'
+            value={data.agreement}
+            onChange={handleSubmit}
+            id='agreement'
+          />
 
           <button className='submit-button' onClick={register}>
             SUBMIT

@@ -60,6 +60,8 @@ const ContentWrapper = styled.div`
 
   height: 900px;
   overflow: hidden;
+  background: linear-gradient(180deg, #072a48 0%, #093963 100%);
+  padding: 50px;
 
   * {
     box-sizing: border-box;
@@ -183,8 +185,11 @@ const ContentWrapper = styled.div`
 
 const FormWrapper = styled.div`
   width: 50%;
+  max-width: 600px;
   box-sizing: border-box;
-  padding: 90px 140px;
+  padding: 90px 60px;
+  background: white;
+  border-radius: 15px;
 
   display: flex;
   flex-direction: column;
@@ -210,11 +215,10 @@ const FormWrapper = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 50%;
-  background: linear-gradient(180deg, #072a48 0%, #093963 100%);
+  flex: 1;
+
   position: relative;
 
-  overflow: hidden;
   display: flex;
 
   @media screen and (max-width: 1200px) {
@@ -228,8 +232,8 @@ const Wrapper = styled.div`
 
     margin: auto auto;
 
-    width: 350px;
-    height: 350px;
+    width: 40%;
+    // height: 350px;
 
     background: linear-gradient(
       180deg,
@@ -239,14 +243,14 @@ const Wrapper = styled.div`
     border-radius: 16px;
 
     img {
-      width: 240px;
+      width: 100%;
       opacity: 0.8;
     }
   }
 
   .label {
     position: absolute;
-    bottom: 250px;
+    bottom: 150px;
     left: 100px;
 
     color: white;

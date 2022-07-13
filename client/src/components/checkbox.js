@@ -1,22 +1,25 @@
-import { useRef, useState } from "react";
-import styled from "styled-components";
-import check from '../assets/image/check.svg'
+import { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
+import check from '../assets/image/check.svg';
 
 export default function CheckBox({ name, value, label, id, onChange }) {
   const [flag, setFlag] = useState(false);
 
+  useEffect(() => {
+    setFlag(value);
+  }, [value]);
+  
   const ref = useRef();
 
   const handleClick = () => {
     ref.current.checked = !flag;
-    ref.current.value = !flag
+    ref.current.value = !flag;
     setFlag((prev) => !prev);
     onChange({
       target: ref.current,
-      preventDefault: () => {}
-    })
+      preventDefault: () => {},
+    });
   };
-
 
   return (
     <div>
@@ -25,10 +28,11 @@ export default function CheckBox({ name, value, label, id, onChange }) {
         id={id}
         name={name}
         ref={ref}
-        type="checkbox"
+        type='checkbox'
+        checked={value}
       />
       <InputWrapper onClick={handleClick}>
-        <div className="checker">{flag && <img src={check} alt='check' /> }</div>
+        <div className='checker'>{flag && <img src={check} alt='check' />}</div>
         <div>{label}</div>
       </InputWrapper>
     </div>
