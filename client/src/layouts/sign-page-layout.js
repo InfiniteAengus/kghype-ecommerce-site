@@ -3,7 +3,33 @@ import { auth } from '../firebase.js';
 import firebase from 'firebase/compat/app';
 import { signInWithPopup } from '@firebase/auth';
 
-const SignPageLayout = ({ children, rightIcon, placeholderText, label }) => {
+const rightPanels = [
+  {
+    icon: <img src='/image/cheap-price.svg' alt='cheap-price' />,
+    title: 'Cheap Prices',
+    description:
+      'With our trusted purchasing team we can purchase items from Taobao, Weidian, and Yupoo for cost effective prices',
+  },
+  {
+    icon: <img src='/image/amazing-support.svg' alt='cheap-price' />,
+    title: 'Amazing Support',
+    description:
+      'We offer the best customer support, no longer will you be ignored or have long reply times, KgHype offers support through email and our discord server',
+  },
+  {
+    icon: <img src='/image/clear-quality.svg' alt='cheap-price' />,
+    title: 'Clear Quality inspection',
+    description:
+      'We offer clear quality check pictures so you know exactly what products look like before shipping.',
+  },
+  {
+    icon: <img src='/image/afford.svg' alt='cheap-price' />,
+    title: 'Affordable Shipping',
+    description:
+      'We offer amazing shipping prices to help you ship consolidate and ship parcels with ease',
+  },
+];
+const SignPageLayout = ({ children, rightIcon }) => {
   const handleSignIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
@@ -38,15 +64,23 @@ const SignPageLayout = ({ children, rightIcon, placeholderText, label }) => {
         <div className='circle-2'></div>
         <div className='circle-3'></div>
         <div className='circle-4'></div>
-        {rightIcon && (
+        {rightIcon ? (
           <div className='right-icon'>
             <img src={rightIcon} alt='icon' />
           </div>
+        ) : (
+          <div className='service-list'>
+            {rightPanels.map((item, index) => (
+              <div className='service-item' key={`service-item-${index}`}>
+                <div>{item.icon}</div>
+                <div>
+                  <span>{item.title}</span>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         )}
-        <div className='label'>
-          <p>{placeholderText}</p>
-          <h2>{label}</h2>
-        </div>
       </Wrapper>
     </ContentWrapper>
   );
@@ -220,9 +254,12 @@ const FormWrapper = styled.div`
 const Wrapper = styled.div`
   flex: 1;
 
+  padding: 30px 80px;
   position: relative;
 
   display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 1200px) {
     display: none;
@@ -248,7 +285,31 @@ const Wrapper = styled.div`
 
     img {
       width: 100%;
-      opacity: 0.8;
+    }
+  }
+
+  .service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .service-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    color: white;
+    span {
+      font-weight: 700;
+      font-size: 36px;
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 14px;
+      margin: 0;
     }
   }
 
