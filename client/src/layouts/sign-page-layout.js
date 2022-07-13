@@ -191,6 +191,9 @@ const FormWrapper = styled.div`
   background: white;
   border-radius: 15px;
 
+  position: relative;
+  z-index: 10;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -232,7 +235,8 @@ const Wrapper = styled.div`
 
     margin: auto auto;
 
-    width: 40%;
+    width: 80%;
+    max-width: 600px;
     // height: 350px;
 
     background: linear-gradient(
