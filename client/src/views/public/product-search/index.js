@@ -60,8 +60,23 @@ function ListCard({ title, description, price, img, onClick }) {
 
   return (
     <li>
-      <Card style={{ height: '550px', cursor: 'pointer' }} onClick={onClick}>
-        <ImageWrapper src={img} alt='product-image' className='product-image' />
+      <Card
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          pointer: 'cursor',
+          height: '450px',
+        }}
+        onClick={onClick}
+      >
+        <div style={{ width: '100%', aspectRatio: '1', overflow: 'hidden' }}>
+          <img
+            src={img}
+            alt='product'
+            className='product-image'
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
         <ProductDescription>
           {description || '<No Description>'}
         </ProductDescription>
@@ -338,6 +353,7 @@ const InfoWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;
 `;
 
 const ShopWrapper = styled.div`
@@ -465,6 +481,7 @@ const ProductTitle = styled.h3`
 `;
 
 const ProductDescription = styled.p`
+  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
